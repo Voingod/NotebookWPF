@@ -5,8 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notebook"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Background="DarkGoldenrod" Foreground="DarkBlue"
+        Title="Программа" Height="450" Width="800" ResizeMode="NoResize"
+        Topmost="False" WindowState="Normal" Icon="D:\C# Уроки\CreatePrograms\Icon.jpg">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem x:Name="MenuFile" Header="Файл" Height="20">
+                <MenuItem x:Name="OpenFile" Header="Открыть файл"
+                          Click="OpenFile_Click">
+                    <MenuItem.Icon>
+                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="NewFile" Header="Новый файл"
+                          Click="NewFile_Click">
+                    <MenuItem.Icon>
+                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="CreateFile" Header="Создать файл"
+                          Click="CreateFile_Click">
+                    <MenuItem.Icon>
+                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="ExitProgramm" Header="Выход"
+                          Click="ExitProgramm_Click">
+                    <MenuItem.Icon>
+                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="EditText" Header="Редактировать" Height="20">
+                <MenuItem x:Name="FontText" Header="Шрифт">
+                    <MenuItem.Icon>
+                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="FontTimesNewRoman" Header="Times New Roman"
+                              IsCheckable="True"
+                              StaysOpenOnClick="True">
+                    </MenuItem>
+                    <MenuItem x:Name="FontVerdana" Header="Verdana"
+                              IsCheckable="True"
+                              StaysOpenOnClick="True">
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem x:Name="CopyText" Header="Копировать"
+                          Command="ApplicationCommands.Copy"
+                          InputGestureText="CTRL+C">
+                    <MenuItem.Icon>
+                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="PastText" Header="Вставить" 
+                          Command="ApplicationCommands.Paste"
+                          InputGestureText="CTRL+V">
+                    <MenuItem.Icon>
+                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="CutText" Header="Вырезать"
+                          Command="ApplicationCommands.Cut"
+                          InputGestureText="CTRL+X">
+                    <MenuItem.Icon>
+                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <TextBox Margin="2,2,2,0"/>
+
+    </DockPanel>
 </Window>

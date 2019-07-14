@@ -24,5 +24,25 @@ namespace Notebook
         {
             InitializeComponent();
         }
+
+        private void OpenFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NewFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CreateFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExitProgramm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
