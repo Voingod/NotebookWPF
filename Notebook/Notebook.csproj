@@ -94,5 +94,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\new_file.ico" />
+    <Resource Include="Resources\open_file.ico" />
+    <Resource Include="Resources\save_file.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\exit.ico" />
+    <Resource Include="Resources\times_new_roman_font.ico" />
+    <Resource Include="Resources\verdana_font.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\start.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\copy_text.ico" />
+    <Resource Include="Resources\cut_text.ico" />
+    <Resource Include="Resources\paste_text.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

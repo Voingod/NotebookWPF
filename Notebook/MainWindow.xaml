@@ -7,73 +7,106 @@
         mc:Ignorable="d"
         Background="DarkGoldenrod" Foreground="DarkBlue"
         Title="Программа" Height="450" Width="800" ResizeMode="NoResize"
-        Topmost="False" WindowState="Normal" Icon="D:\C# Уроки\CreatePrograms\Icon.jpg">
+        Topmost="False" WindowState="Normal" Icon="./Resources/start.ico">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem x:Name="MenuFile" Header="Файл" Height="20">
                 <MenuItem x:Name="OpenFile" Header="Открыть файл"
                           Click="OpenFile_Click">
                     <MenuItem.Icon>
-                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                        <Image Source="./Resources/open_file.ico"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="NewFile" Header="Новый файл"
                           Click="NewFile_Click">
                     <MenuItem.Icon>
-                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                        <Image Source="./Resources/new_file.ico"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="CreateFile" Header="Создать файл"
-                          Click="CreateFile_Click">
+                <MenuItem x:Name="SaveFile" Header="Сохранить файл"
+                          Click="SaveFile_Click">
                     <MenuItem.Icon>
-                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                        <Image Source="./Resources/save_file.ico"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="ExitProgramm" Header="Выход"
                           Click="ExitProgramm_Click">
                     <MenuItem.Icon>
-                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
+                        <Image Source="./Resources/exit.ico"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem x:Name="EditText" Header="Редактировать" Height="20">
                 <MenuItem x:Name="FontText" Header="Шрифт">
-                    <MenuItem.Icon>
-                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
-                    </MenuItem.Icon>
                     <MenuItem x:Name="FontTimesNewRoman" Header="Times New Roman"
                               IsCheckable="True"
-                              StaysOpenOnClick="True">
+                              StaysOpenOnClick="True"
+                              Click="FontTimesNewRoman_Click">
+                        <MenuItem.Icon>
+                            <Image Source="./Resources/times_new_roman_font.ico"/>
+                        </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem x:Name="FontVerdana" Header="Verdana"
                               IsCheckable="True"
-                              StaysOpenOnClick="True">
+                              StaysOpenOnClick="True"
+                              Click="FontVerdana_Click">
+                        <MenuItem.Icon>
+                            <Image Source="./Resources/verdana_font.ico"/>
+                        </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
+                <Separator/>
                 <MenuItem x:Name="CopyText" Header="Копировать"
                           Command="ApplicationCommands.Copy"
                           InputGestureText="CTRL+C">
-                    <MenuItem.Icon>
-                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
-                    </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="PastText" Header="Вставить" 
                           Command="ApplicationCommands.Paste"
                           InputGestureText="CTRL+V">
-                    <MenuItem.Icon>
-                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
-                    </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="CutText" Header="Вырезать"
                           Command="ApplicationCommands.Cut"
                           InputGestureText="CTRL+X">
-                    <MenuItem.Icon>
-                        <Image Source="D:\C# Уроки\CreatePrograms\Icon.jpg"/>
-                    </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <TextBox Margin="2,2,2,0"/>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button x:Name="btnSave" ToolTip="Сохранить файл" 
+                    Click="SaveFile_Click">
+                    <Image Source="./Resources/save_file.ico" Height="25" Width="25"/>
+                </Button>
+                <Button x:Name="btnOpen" ToolTip="Открыть файл" 
+                    Click="OpenFile_Click">
+                    <Image Source="./Resources/open_file.ico" Height="25" Width="25"/>
+                </Button>
+                <Separator/>
+                <Button x:Name="btnCopy" ToolTip="Скопировать текст" 
+                    Command="ApplicationCommands.Copy">
+                    <Image Source="./Resources/copy_text.ico" Height="25" Width="25"/>
+                </Button>
+                <Button x:Name="btnCut" ToolTip="Вырезать текст" 
+                    Command="ApplicationCommands.Cut">
+                    <Image Source="./Resources/cut_text.ico" Height="25" Width="25"/>
+                </Button>
+                <Button x:Name="btnPaste" ToolTip="Вставить текст" 
+                    Command="ApplicationCommands.Paste">
+                    <Image Source="./Resources/paste_text.ico" Height="25" Width="25"/>
+                </Button>
+                <Label>Размер шрифта:</Label>
+                <ComboBox x:Name="CmbxSelectionChanged"
+                          SelectionChanged="SelectionChanged_SelectionChanged">
+                    <ComboBoxItem>10</ComboBoxItem>
+                    <ComboBoxItem IsSelected="True">14</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                    <ComboBoxItem>24</ComboBoxItem>
+                    <ComboBoxItem>32</ComboBoxItem> 
+                    <ComboBoxItem>48</ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+        </ToolBarTray>
+        <TextBox x:Name="TxtField" Margin="2,2,2,0" FontSize="14"/>
 
     </DockPanel>
 </Window>
