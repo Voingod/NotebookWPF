@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Notebook
 {
@@ -113,6 +115,52 @@ namespace Notebook
                         sw.Write(TxtField.Text);
                     }
                 }
+            }
+        }
+
+        private void BtnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            string connectionString = ConfigurationManager.AppSettings["connectionString"];
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+            try
+            {
+                if (sqlConnection.State == System.Data.ConnectionState.Closed)
+                    sqlConnection.Open();
+
+                string query = "Select Count(1) From Users Where login = @login and password = @password";
+                SqlCommand sqlCommand = new SqlCommand(query, sqlConnection);
+                sqlCommand.CommandType = System.Data.CommandType.Text;
+
+                sqlCommand.Parameters.Add("@login",txtblLogin.Text);
+                sqlCommand.Parameters.Add("@password", txtbPassword.Password);
+
+                int counUser = Convert.ToInt32(sqlCommand.ExecuteScalar());
+
+                if (counUser == 0)
+                {
+                    query = "Insert into Users (login, password) values (@login, @password)";
+                    SqlCommand sqlCommandInsert = new SqlCommand(query, sqlConnection);
+                    sqlCommandInsert.CommandType = System.Data.CommandType.Text;
+
+                    sqlCommandInsert.Parameters.Add("@login", txtblLogin.Text);
+                    sqlCommandInsert.Parameters.Add("@password", txtbPassword.Password);
+
+                    sqlCommandInsert.ExecuteNonQuery();
+                    MessageBox.Show("All Good if");
+                }
+                else
+                {
+                    MessageBox.Show("All Good else");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
             }
         }
     }

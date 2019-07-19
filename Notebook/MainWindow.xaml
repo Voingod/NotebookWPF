@@ -129,6 +129,8 @@
                             Background="#219c7b"
                             FontFamily="Cambria" FontWeight="Bold"
                             Opacity="15"
+                            Click="BtnRegistration_Click"
+                            
                             />
                 </Grid>
             </TabItem>
