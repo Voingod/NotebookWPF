@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notebook"
         mc:Ignorable="d"
-        Background="DarkGoldenrod" Foreground="DarkBlue"
+        Background="#FFEEF5FD" Foreground="DarkBlue"
         Title="Программа" Height="450" Width="800" ResizeMode="NoResize"
         Topmost="False" WindowState="Normal" Icon="./Resources/start.ico">
     <DockPanel>
@@ -96,17 +96,49 @@
                 <Label>Размер шрифта:</Label>
                 <ComboBox x:Name="CmbxSelectionChanged"
                           SelectionChanged="SelectionChanged_SelectionChanged">
-                    <ComboBoxItem>10</ComboBoxItem>
-                    <ComboBoxItem IsSelected="True">14</ComboBoxItem>
-                    <ComboBoxItem>16</ComboBoxItem>
-                    <ComboBoxItem>20</ComboBoxItem>
-                    <ComboBoxItem>24</ComboBoxItem>
-                    <ComboBoxItem>32</ComboBoxItem> 
-                    <ComboBoxItem>48</ComboBoxItem>
                 </ComboBox>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="TxtField" Margin="2,2,2,0" FontSize="14"/>
+        <TabControl x:Name="tabControl">
+            <TabItem x:Name="tbcRegistration" Header="Регистрация">
+                <Grid Background="Beige">
+                    <Label Content="Регистрация" Height="70" Width="300"
+                           VerticalAlignment="Top" HorizontalAlignment="Center"
+                           FontSize="48" FontFamily="Cambria" FontWeight="Bold" Foreground="#FF802C2C"
+                           Margin="0,20"/>
+                    <TextBox x:Name="txtblLogin" HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               Margin="0,100,0,70"
+                               Height="30" Width="300"
+                               Background="#202327"
+                               Foreground="White"
+                               FontSize="20"/>
+                    <PasswordBox x:Name="txtbPassword" HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               Margin="0,150"
+                               Height="30" Width="300"
+                               Background="#202327"
+                               Foreground="White"
+                               FontSize="20"/>
+                    <Button x:Name="btnRegistration" Content="Зарегитрироваться"
+                            Height="30" Width="300"
+                            VerticalAlignment="Bottom"
+                            Margin="0,0,0,100"
+                            FontSize="18"
+                            Foreground="#060e5c"
+                            Background="#219c7b"
+                            FontFamily="Cambria" FontWeight="Bold"
+                            Opacity="15"
+                            />
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tbcNote" Header="Редактор">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="TxtField" FontSize="14"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
 
     </DockPanel>
 </Window>
